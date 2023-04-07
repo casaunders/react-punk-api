@@ -9,7 +9,7 @@ const App = () => {
 export default App;
 
 // Need container for nav section.
-// Need container for nesting Cards
+// Need container for nesting Cards.
 // Need components for main:
 // Button(s)
 // Filters
