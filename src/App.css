@@ -1,0 +1,9 @@
+.app {
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: orange;
+  padding: 2rem;
+}
+.app > * {
+  margin-bottom: 1.5rem;
+}/*# sourceMappingURL=App.css.map */

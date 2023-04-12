@@ -1,10 +1,5 @@
 .app {
-    height: 100vh;
-    overflow-x: hidden;
+    height: auto;
     background-color: orange;
-    padding: 2rem;
-  
-    > * {
-      margin-bottom: 1.5rem;
-    }
+    padding: 5px;
   }

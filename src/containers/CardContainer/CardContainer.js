@@ -14,7 +14,7 @@ const CardContainer = ({ beers }) => {
       />
     );
   });
-  return <div className="card-container">{beerCardJSX}</div>;
+  return <div className="card_container">{beerCardJSX}</div>;
 };
 
 export default CardContainer;

@@ -1,8 +1,8 @@
-.card-container {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
-    justify-items: center;
-    border: solid brown 2 px;
-  }
+.card_container {
+  display: grid;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 80px;
+  flex-wrap: wrap;
+  padding: 50px;
+}
