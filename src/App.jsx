@@ -19,7 +19,6 @@ function App() {
     };
 
     return (
-
         <>
             <div className="navbar">
                 <NavBar />
@@ -28,7 +27,6 @@ function App() {
                 <Main beers={beers} />
             </div>
         </>
-
     )
 };
 
