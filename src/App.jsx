@@ -6,10 +6,14 @@ import NavBar from "./containers/NavBar/NavBar";
 
 function App() {
     const [beers, setBeers] = useState([]);
+    const [filterByABV, setFilterByABV] = useState(false);
+    const [filterByClassic, setFilterByClassic] = useState(false);
+    const [filterByPh, setFilterByPh] = useState(false);
+
 
     useEffect(() => {
         getBeers();
-    });
+    }, [filterByABV, filterByClassic, filterByPh]);
 
     const getBeers = async () => {
         const res = await fetch("https://api.punkapi.com/v2/beers/");
@@ -18,10 +22,33 @@ function App() {
         setBeers(data)
     };
 
+    const handleSearch = (e) => {
+        const value = e.target.value.toLowerCase();
+        const filteredBeersBySearch = beers.filter((beer) =>
+            `{beer.name}`.toLowerCase().includes(value));
+        setBeers(filteredBeersBySearch)
+    };
+
+    const handleAbvFilter = (e) => {
+        setFilterByABV(e.target.checked)
+    };
+
+    const handleClassicFilter = (e) => {
+        setFilterByClassic(e.target.checked)
+    };
+
+    const handlePhFilter = (e) => {
+        setFilterByPh(e.target.checked)
+    };
+
     return (
         <>
             <div className="navbar">
-                <NavBar />
+                <NavBar
+                    handleSearch={handleSearch}
+                    handleAbvFilter={handleAbvFilter}
+                    handleClassicFilter={handleClassicFilter}
+                    handlePhFilter={handlePhFilter} />
             </div>
             <div className="app">
                 <Main beers={beers} />

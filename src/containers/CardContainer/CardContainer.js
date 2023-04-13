@@ -11,6 +11,7 @@ const CardContainer = ({ beers }) => {
         image={beer.image_url}
         tag={beer.tagline}
         alcoholByVol={beer.abv}
+        ph={beer.ph}
       />
     );
   });
