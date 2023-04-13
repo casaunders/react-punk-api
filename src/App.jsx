@@ -1,18 +1,18 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
 import Main from "./containers/Main/Main";
 import NavBar from "./containers/NavBar/NavBar";
-import Button from "./components/Button/Button";
 
-const App = () => {
+function App() {
     const [beers, setBeers] = useState([]);
 
-    const url = "https://api.punkapi.com/v2/beers/";
+    useEffect(() => {
+        getBeers();
+    });
 
     const getBeers = async () => {
-
-        const res = await fetch(url);
+        const res = await fetch("https://api.punkapi.com/v2/beers/");
         const data = await res.json();
         console.log(data)
         setBeers(data)
@@ -26,9 +26,7 @@ const App = () => {
             </div>
             <div className="app">
                 <Main beers={beers} />
-                <Button onClick={getBeers} label="Get Random Beers" />
             </div>
-
         </>
 
     )
