@@ -17,7 +17,7 @@ const NavBar = ({
       </div>
       <div>
         <Filter
-          handleAbvFilter={handleABVFilter}
+          handleABVFilter={handleABVFilter}
           handleClassicFilter={handleClassicFilter}
           handlePhFilter={handlePhFilter}
         />

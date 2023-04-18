@@ -1,39 +1,56 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import Main from "./containers/Main/Main";
 import NavBar from "./containers/NavBar/NavBar";
 
-function App() {
+const App = () => {
     const [beers, setBeers] = useState([]);
+    const [filterBySearch, setFilterBySearch] = useState(false);
     const [filterByABV, setFilterByABV] = useState(false);
     const [filterByClassic, setFilterByClassic] = useState(false);
     const [filterByPh, setFilterByPh] = useState(false);
 
-
     useEffect(() => {
         getBeers();
-    }, [filterByABV, filterByClassic, filterByPh]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [filterBySearch, filterByABV, filterByClassic, filterByPh]);
+    let url = "https://api.punkapi.com/v2/beers?per_page=72"
+
+    if (filterBySearch) {
+        url = `https://api.punkapi.com/v2/beers?beer_name=${filterBySearch}&`;
+    }
+
+    if (filterByClassic) {
+        url = `https://api.punkapi.com/v2/beers?brewed_before=01-2010&`;
+    }
+
+    if (filterByABV) {
+        url = `https://api.punkapi.com/v2/beers?abv_gt=6`;
+    }
 
     const getBeers = async () => {
-        const res = await fetch("https://api.punkapi.com/v2/beers/");
-        const data = await res.json();
+        const res = await fetch(url);
+        let data = await res.json();
+        if (filterByPh) {
+            data = beers.filter((beer) => beer.ph < 4.0);
+        };
         console.log(data)
         setBeers(data)
     };
 
     const handleSearch = (e) => {
-        const value = e.target.value.toLowerCase();
-        const filteredBeersBySearch = beers.filter((beer) =>
-            `{beer.name}`.toLowerCase().includes(value));
-        setBeers(filteredBeersBySearch)
+        setFilterBySearch(e.target.value.toLowerCase());
     };
 
-    const handleAbvFilter = (e) => {
+
+    const handleABVFilter = (e) => {
+        console.log("ABVChecked")
         setFilterByABV(e.target.checked)
     };
 
     const handleClassicFilter = (e) => {
+        console.log("ClassicChecked")
         setFilterByClassic(e.target.checked)
     };
 
@@ -46,7 +63,7 @@ function App() {
             <div className="navbar">
                 <NavBar
                     handleSearch={handleSearch}
-                    handleAbvFilter={handleAbvFilter}
+                    handleABVFilter={handleABVFilter}
                     handleClassicFilter={handleClassicFilter}
                     handlePhFilter={handlePhFilter} />
             </div>

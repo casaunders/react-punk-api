@@ -1,28 +1,28 @@
 import React from "react";
 import "./Filter.scss";
 
-const Filter = ({ handleAbvFilter, handleClassicFilter, handlePhFilter }) => {
+const Filter = ({ handleABVFilter, handleClassicFilter, handlePhFilter }) => {
   return (
     <div className="filter">
       <h1>Select Filter:</h1>
-      <label htmlFor="ABV">High Alcohol Content: ABV {">"} 6%</label>
+      <label>High Alcohol Content: {">"} 6.0%</label>
       <input
-        onChange={handleAbvFilter}
+        onChange={handleABVFilter}
         type="checkbox"
         name="Aclohol By Vol."
-        id="ABV"
+        id="abv"
       />
 
-      <label htmlFor="Classic Range">Classic Range: Before 2010</label>
+      <label>Classic Range: Before 2010</label>
       <input
         onChange={handleClassicFilter}
         type="checkbox"
         name="Classic"
-        id="Classic"
+        id="first_brewed"
       />
 
-      <label htmlFor="ph">High Acidity: pH {"<"} 4</label>
-      <input onChange={handlePhFilter} type="checkbox" name="pH" id="pH" />
+      <label>High Acidity: pH {"<"} 4</label>
+      <input onChange={handlePhFilter} type="checkbox" name="pH" id="ph" />
     </div>
   );
 };

@@ -2,6 +2,13 @@
   background-color: sandybrown;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 15px;
+  padding-right: 650px;
+  margin-left: 5px;
+}
+
+h1 {
+  color: green;
+  font-size: medium;
 }

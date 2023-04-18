@@ -10,7 +10,7 @@ const CardContainer = ({ beers }) => {
         name={beer.name}
         image={beer.image_url}
         tag={beer.tagline}
-        alcoholByVol={beer.abv}
+        abv={beer.abv}
         ph={beer.ph}
       />
     );

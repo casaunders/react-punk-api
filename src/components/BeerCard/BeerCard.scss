@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -23,11 +23,9 @@
   font-size: 22px;
   height: 40px;
   margin: 10px;
-  padding: 5px;
   text-align: center;
   color: brown;
 }
-
 
 .beer-card__image {
   padding: 15px;
@@ -35,14 +33,14 @@
   align-self: center;
 }
 
-
 .beer-card__tag {
+  padding-top: 25px;
   text-align: center;
   font-size: 16px;
   margin: 10px;
   color: green;
 }
-  
+
 .beer-card__abv {
   width: 240px;
   font-size: 12px;
