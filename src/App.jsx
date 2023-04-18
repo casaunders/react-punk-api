@@ -10,11 +10,12 @@ const App = () => {
     const [filterByABV, setFilterByABV] = useState(false);
     const [filterByClassic, setFilterByClassic] = useState(false);
     const [filterByPh, setFilterByPh] = useState(false);
+    const [filterByIBU, setFilterByIBU] = useState(false);
 
     useEffect(() => {
         getBeers();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [filterBySearch, filterByABV, filterByClassic, filterByPh]);
+    }, [filterBySearch, filterByABV, filterByClassic, filterByPh, filterByIBU]);
     let url = "https://api.punkapi.com/v2/beers?per_page=72"
 
     if (filterBySearch) {
@@ -27,6 +28,10 @@ const App = () => {
 
     if (filterByABV) {
         url = `https://api.punkapi.com/v2/beers?abv_gt=6`;
+    }
+
+    if (filterByIBU) {
+        url = `https://api.punkapi.com/v2/beers?ibu_gt=50`;
     }
 
     const getBeers = async () => {
@@ -58,6 +63,10 @@ const App = () => {
         setFilterByPh(e.target.checked)
     };
 
+    const handleIBUFilter = (e) => {
+        setFilterByIBU(e.target.checked)
+    };
+
     return (
         <>
             <div className="navbar">
@@ -65,7 +74,8 @@ const App = () => {
                     handleSearch={handleSearch}
                     handleABVFilter={handleABVFilter}
                     handleClassicFilter={handleClassicFilter}
-                    handlePhFilter={handlePhFilter} />
+                    handlePhFilter={handlePhFilter}
+                    handleIBUFilter={handleIBUFilter} />
             </div>
             <div className="app">
                 <Main beers={beers} />

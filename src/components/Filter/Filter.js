@@ -1,7 +1,12 @@
 import React from "react";
 import "./Filter.scss";
 
-const Filter = ({ handleABVFilter, handleClassicFilter, handlePhFilter }) => {
+const Filter = ({
+  handleABVFilter,
+  handleClassicFilter,
+  handlePhFilter,
+  handleIBUFilter,
+}) => {
   return (
     <div className="filter">
       <h1>Select Filter:</h1>
@@ -23,6 +28,14 @@ const Filter = ({ handleABVFilter, handleClassicFilter, handlePhFilter }) => {
 
       <label>High Acidity: pH {"<"} 4</label>
       <input onChange={handlePhFilter} type="checkbox" name="pH" id="ph" />
+
+      <label>Bitterness Range: {">"} 50.0%</label>
+      <input
+        onChange={handleIBUFilter}
+        type="checkbox"
+        name="Inter. Bitterness Unit"
+        id="ibu"
+      />
     </div>
   );
 };

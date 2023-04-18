@@ -8,6 +8,7 @@ const NavBar = ({
   handleABVFilter,
   handleClassicFilter,
   handlePhFilter,
+  handleIBUFilter,
 }) => {
   return (
     <div className="navbar">
@@ -20,6 +21,7 @@ const NavBar = ({
           handleABVFilter={handleABVFilter}
           handleClassicFilter={handleClassicFilter}
           handlePhFilter={handlePhFilter}
+          handleIBUFilter={handleIBUFilter}
         />
       </div>
     </div>

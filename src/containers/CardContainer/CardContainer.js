@@ -12,6 +12,7 @@ const CardContainer = ({ beers }) => {
         tag={beer.tagline}
         abv={beer.abv}
         ph={beer.ph}
+        ibu={beer.ibu}
       />
     );
   });
