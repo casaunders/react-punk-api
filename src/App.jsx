@@ -31,7 +31,7 @@ const App = () => {
     }
 
     if (filterByIBU) {
-        url = `https://api.punkapi.com/v2/beers?ibu_gt=50`;
+        url = `https://api.punkapi.com/v2/beers?ibu_gt=50.0`;
     }
 
     const getBeers = async () => {
